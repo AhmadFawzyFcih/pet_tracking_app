@@ -10,6 +10,8 @@ module PetTrackingApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
+    config.eager_load_paths << Rails.root.join('app', 'serializers')
+    config.factory_bot.definition_file_paths = ["spec/factories"]
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -28,5 +30,6 @@ module PetTrackingApp
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.middleware.use ActionDispatch::Session::CookieStore
   end
 end
