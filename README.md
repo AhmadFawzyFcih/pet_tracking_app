@@ -33,17 +33,13 @@ trackers for cats (small and big) and three for dogs (small, medium, big).
         cp .env.example .env
         cp config/database.example.yml config/database.yml
 
-3- Install Dependencies:
+3- Install Dependencies and start the server:
 
-    docker-compose build
+    docker-compose up --build
 
 4- Database setup:
 
     docker-compose run web rails db:create db:migrate db:seed
-
-5- Start the server:
-
-    docker-compose up
 
 
 ## API Endpoints
